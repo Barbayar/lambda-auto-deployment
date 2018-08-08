@@ -2,8 +2,10 @@
 
 set -e
 
+pushd $(dirname ${0})
+
 if [ "$#" -ne 1 ]; then
-    echo "usage: $0 ACCOUNT_ID"
+    echo "usage: ${0} ACCOUNT_ID"
 
     exit 1
 fi
@@ -42,4 +44,5 @@ for REGION in ${REGIONS}; do
     popd
 done
 
+popd
 popd
