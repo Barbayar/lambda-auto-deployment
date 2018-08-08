@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-set -x
 set -e
 
-ACCOUNT=$(echo ${CODEBUILD_BUILD_ARN} | awk -F ':' '{print $5}')
+if [ "$#" -ne 1 ]; then
+    echo "usage: $0 ACCOUNT_ID"
+
+    exit 1
+fi
+
+ACCOUNT=${1}
 
 pushd ${ACCOUNT}
 
