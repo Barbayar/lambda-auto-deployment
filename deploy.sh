@@ -34,7 +34,7 @@ for REGION in ${REGIONS}; do
             echo "${FUNCTION}: SHA256 checksum is same, won't deploy"
         else
             echo "${FUNCTION}: deploying..."
-            aws lambda update-function-code --function-name ${FUNCTION} --zip-file fileb:///tmp/${FUNCTION}.zip
+            aws lambda update-function-code --region ${REGION} --function-name ${FUNCTION} --zip-file fileb:///tmp/${FUNCTION}.zip
             echo "${FUNCTION}: deployed"
         fi
 
